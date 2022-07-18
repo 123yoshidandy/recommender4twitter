@@ -1,0 +1,17 @@
+body {
+    width: 1000px;
+    background-color: #263238;
+    color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline_table {
+    width: 1000px;
+    height: 200px;
+    font-size:30px;
+}
+
+td {
+    background-color: #455A64; /* 背景色 */
+}
