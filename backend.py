@@ -4,7 +4,7 @@ import json
 from flask import Flask
 import tweepy
 
-from backend.secret import *
+from secret import *
 
 
 app = Flask(__name__)

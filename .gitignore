@@ -1,1 +1,4 @@
-/backend/secret.py
+secret.py
+
+.idea/
+__pycache__/
