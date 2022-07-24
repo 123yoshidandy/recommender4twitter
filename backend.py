@@ -1,3 +1,4 @@
+import os
 import json
 # import pprint
 
@@ -15,16 +16,21 @@ def get_tweets():
     response = []
 
     api = tweepy.Client(
-        bearer_token=BEARER_TOKEN,
-        consumer_key=CONSUMER_KEY,
-        consumer_secret=CONSUMER_SECRET,
-        access_token=ACCESS_TOKEN,
-        access_token_secret=ACCESS_TOKEN_SECRET,
+        bearer_token=os.environ['BEARER_TOKEN'],
+        consumer_key=os.environ['CONSUMER_KEY'],
+        consumer_secret=os.environ['CONSUMER_SECRET'],
+        access_token=os.environ['ACCESS_TOKEN'],
+        access_token_secret=os.environ['ACCESS_TOKEN_SECRET'],
         wait_on_rate_limit=True
     )
 
-    timeline = api.get_home_timeline(expansions=['author_id'], user_fields=['id', 'name', 'username'], tweet_fields=['created_at', 'public_metrics'])
+    timeline = api.get_home_timeline(
+        expansions=['author_id'],
+        user_fields=['id', 'name', 'username'],
+        tweet_fields=['created_at', 'public_metrics']
+    )
     users = timeline.includes['users']
+
     for tweet in timeline.data:
         pm = tweet.public_metrics
         value = pm['retweet_count'] + pm['reply_count'] + pm['like_count'] + pm['quote_count']
@@ -44,6 +50,7 @@ def get_tweets():
                         }
                     })
                     break
+
     return json.dumps(response, indent=2)
 
 
