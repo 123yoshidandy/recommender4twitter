@@ -1,7 +1,9 @@
 window.addEventListener('load', init);
 
 function init() {
-    fetch('http://127.0.0.1:8000/', {
+    var host = 'https://recommender4twitter.herokuapp.com'
+//    var host = 'http://localhost:8000'
+    fetch(host + '/api/timeline', {
         mode: 'cors'
     }).then(response => {
         console.log(response);

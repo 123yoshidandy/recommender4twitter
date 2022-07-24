@@ -1,7 +1,7 @@
 import os
 import json
 
-from flask import Flask
+from flask import Flask, render_template
 import tweepy
 
 
@@ -9,7 +9,12 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def get_tweets():
+def index():
+    return render_template("index.html")
+
+
+@app.route("/api/timeline")
+def get_timeline():
     response = []
 
     api = tweepy.Client(
@@ -59,4 +64,4 @@ def after_request(response):
 
 if __name__ == '__main__':
     app.run(port=8000)
-    # print(get_tweets())
+    # print(get_timeline())

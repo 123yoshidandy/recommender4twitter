@@ -7,3 +7,12 @@
 - TwitterAPIで実現する。
 - Webアプリとして作る。
 - Chrome Extensionsもありかも。
+
+## URLs
+
+- https://dashboard.heroku.com/apps/recommender4twitter
+- https://recommender4twitter.herokuapp.com/
+
+## 参考文献
+
+- https://qiita.com/redpanda/items/a056daea48b545250ce7
