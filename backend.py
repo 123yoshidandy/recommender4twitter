@@ -1,11 +1,8 @@
 import os
 import json
-# import pprint
 
 from flask import Flask
 import tweepy
-
-from secret import *
 
 
 app = Flask(__name__)
@@ -62,4 +59,4 @@ def after_request(response):
 
 if __name__ == '__main__':
     app.run(port=8000)
-    # pprint.pprint(get_tweets())
+    # print(get_tweets())
