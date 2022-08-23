@@ -28,7 +28,7 @@ def get_timeline():
 
     timeline = api.get_home_timeline(
         expansions=['author_id'],
-        user_fields=['id', 'name', 'username'],
+        user_fields=['id', 'name', 'username', 'profile_image_url'],
         tweet_fields=['created_at', 'public_metrics']
     )
     users = timeline.includes['users']
@@ -44,6 +44,7 @@ def get_timeline():
                             'id': user.id,
                             'username': user.username,
                             'name': user.name,
+                            'profile_image_url': user.profile_image_url,
                         },
                         'tweet': {
                             'id': tweet.id,
